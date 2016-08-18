@@ -4,36 +4,30 @@ using System.Linq;
 using System.Net;
 using System.Net.Http;
 using System.Web.Http;
+using Hellothere.Models;
 
-namespace Hellothere.Controllers
+namespace MyFirstProject.Controllers
 {
-    public class ValuesController : ApiController
+      public class NameController : ApiController
     {
-        // GET api/values
-        public IEnumerable<string> Get()
+        Member[] Person = new Member[]
         {
-            return new string[] { "value1", "value2" };
-        }
+                new Member { ID = 1, Name = "Karthik", DoB = "07/06/1979", Color = "Blue" },
+                new Member { ID = 2, Name = "Laavanya", DoB = "08/16/1979", Color = "Red" },
+                new Member { ID = 3, Name = "Aditi", DoB = "09/09/2012", Color = "Pink" },
+                new Member { ID = 4, Name = "Aarav", DoB = "01/27/2016", Color = "Orange" }
+        };
 
-        // GET api/values/5
+        public IEnumerable<Member> Get()
+        {
+            return Person;
+        }
+            
+        // GET api/names/5
         public string Get(int id)
         {
             return "value";
         }
 
-        // POST api/values
-        public void Post([FromBody]string value)
-        {
-        }
-
-        // PUT api/values/5
-        public void Put(int id, [FromBody]string value)
-        {
-        }
-
-        // DELETE api/values/5
-        public void Delete(int id)
-        {
-        }
     }
 }
